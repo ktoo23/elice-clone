@@ -1,0 +1,281 @@
+/* default value */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 14px; 
+    overflow-x: hidden;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    vertical-align: middle;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+    border: solid #eaeaea 1px;
+}
+/* title */
+.title-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 0.5rem 0.2rem;
+}
+
+.main-title {
+   margin-right: auto;
+}
+.sub-title {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    margin-right: 0;
+}
+
+.sub-title p {
+    color: #3d3d3d;
+    cursor: pointer;
+}
+
+/* section1  */
+.section-1, .section-2, .section-3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.section-1-container,
+.section-2-container,
+.section-3-container {
+    width: 90%;
+}
+
+.section-1-item,
+.section-2-item,
+.section-3-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-1-contents,
+.section-2-contents
+.section-3-contents {
+    font-size: 0.8rem;
+    padding: 0 3rem;
+    text-align: center;
+    color: #3d3d3d;
+}
+
+/* tabs */
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-gap: 2;
+    background: #524fa1;
+    height: 35px;
+    color: #fff;
+}
+
+.tab1, .tab2, .tab3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.tab1 p, .tab2 p, .tab3 p {
+    cursor: pointer;
+}
+/* tab1-content */
+.tab1-contents,
+.tab2-contents,
+.tab3-contents {
+    display: none !important;
+    padding: 1.2rem 1.5rem;
+}
+.tab-content-title {
+    margin-bottom: 0.5rem;
+}
+.tab1-contents div:nth-child(2),
+.tab2-contents div:nth-child(2),
+.tab3-contents div:nth-child(2) {
+    border: 2px solid #524fa1;
+    margin-bottom: 0.5rem;
+}
+
+/* players */
+.players {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+.player img {
+    width: 225px;
+    height: 225px;
+    border: 7px solid #fff;
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+
+.player {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.player-info {
+    width: 200px;
+    height: 150px; 
+}
+
+/* slider */
+#slider {
+    width: 1024px;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 5rem;
+}
+
+#slider .slides {
+    display: block;
+    width: 8000px;
+    height: 100%;
+}
+
+#slider .slide {
+    float: left;
+    width: 1024px;
+    height: 500px;
+}
+
+/* section-3 play-photo */
+.play-photo {
+    width: 80%;
+    height: 250px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2;
+    margin: 0 auto;
+}
+
+.play-photo img {
+    width: 95%;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/* text */
+.title-text {
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 1.6;
+}
+
+.tab-desc-text {
+    color: rgba(62, 62, 62, 0.9);
+}
+.md-text {
+    font-size: 1.2rem;
+}
+
+.active {
+    color: #000;
+    background: #efeff6;
+    height: 100%;
+}
+
+/* display */
+.show {
+    display: block !important;
+    color: #000;
+    background: #efeff6;
+}
+
+.hidden {
+    display: none;
+}
+
+/* zoom */
+.zoom {
+    width: 100%;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+/* zoom image */
+.zoom_content {
+    margin: 0 auto;
+    display: block;
+    width: 70%; 
+    height: 100%;
+    animation-name: zoom;
+    animation-duration: 0.8s;
+}
+
+/* zoom 애니메이션 */
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* close button */
+.close {
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
