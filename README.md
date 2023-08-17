@@ -3,6 +3,11 @@
 # <h3>🔗 image zoom
 
 : 이미지 클릭시 이미지 줌 창이 나타남.
+
+(클릭 전)
+![Alt text](image-1.png)
+
+(클릭 후)
 ![Alt text](image.png)
 
 ```javascript
@@ -31,21 +36,41 @@ const src = arr[arr.length - 1]; // 파일명만 추출
 ```
 
 3. hidden으로 감춰둔 zoom 창의 hidden 속성 없앤다.
+   전체 이미지를 보여주는 play-photo(경기 사진을 담은 앨범)에 hidden 속성을 추가해 영역을 잠시 없애고, 없어진 영역에 zoom이 나타나게 한다.
 
 ```javascript
-const zoom = document.querySelector(".zoom");
-const zoom_img = document.querySelector(".zoom_content"); // 줌 창에 담을 이미지 컨텐츠 = 줌 할 이미지
+js
+photoContainer.classList.add('hidden');
+zoom.classList.remove('hidden');
+
+css
+.hidden {
+    display: none;
+}
 ```
 
 4. <img class="zoom_content"> 줌 할 이미지 소스를 추가하면 된다.
 
 ```javascript
-zoom_img.src = "img/" + src;
+const zoom = document.querySelector(".zoom");
+const zoom_img = document.querySelector(".zoom_content"); // 줌 창에 담을 이미지 컨텐츠 = 줌 할 이미지
+
+function displayImgZoom() {
+    const arr = this.src.split('/');
+    const src = arr[arr.length - 1];
+    ...
+    zoom_img.src = "img/" + src;
+}
 ```
 
 (전체)
 
 ```javascript
+const zoom = document.querySelector(".zoom");
+const zoom_img = document.querySelector(".zoom_content");
+const imgs = document.querySelectorAll(".play-photo img");
+const photoContainer = document.querySelector(".play-photo");
+
 imgs.forEach((e) => e.addEventListener("click", displayImgZoom));
 
 function displayImgZoom() {
@@ -96,4 +121,20 @@ function moveTo() {
 // 상단 메뉴 탭
 let subTitles = document.querySelectorAll(".sub-title > p");
 subTitles.forEach((e) => e.addEventListener("click", moveTo));
+```
+
+```javascript
+html
+메뉴 탭
+<div class="sub-title">
+    <p id="croket">크로켓</p>
+    <p id="player">선수</p>
+    <p id="photo">사진</p>
+</div>
+...
+
+메뉴 컨텐츠 영역
+<section class="section-1 croket">...</section>
+<section class="section-2 player">...</section>
+...
 ```
